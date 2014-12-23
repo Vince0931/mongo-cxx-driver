@@ -16,6 +16,7 @@
 
 #include "driver/config/prelude.hpp"
 
+#include <cstdlib>
 #include <memory>
 
 #include "bson/document/view.hpp"
@@ -23,17 +24,17 @@
 namespace bson {
 namespace document {
 
-class LIBMONGOCXX_EXPORT value {
+class LIBMONGOCXX_API value {
 
    public:
-    value(const std::uint8_t* b, std::size_t l, void (*dtor)(void*) = free);
+    value(const std::uint8_t* b, std::size_t l, decltype(&std::free) = std::free);
     value(const view& view);
 
     document::view view() const;
     operator document::view() const;
 
    private:
-    std::unique_ptr<void, void (*)(void*)> _buf;
+    std::unique_ptr<void, decltype(&std::free)> _buf;
     std::size_t _len;
 
 };
