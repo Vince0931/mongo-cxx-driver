@@ -1,4 +1,6 @@
 # TODO: do we need anything out of cmake 3? should be more aggressive?
+
+# Versions < 2.8.8 do not support Object Libraries
 cmake_minimum_required(VERSION 2.8.8)
 
 project(mongocxx)
@@ -71,7 +73,7 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 
 set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Werror ${CMAKE_CXX_FLAGS}")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -flto")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(CMAKE_CXX_FLAGS_DEBUG "-ggdb3 -O0")
 #set(CMAKE_EXE_LINKER_FLAGS "-lprofiler ${CMAKE_EXE_LINKER_FLAGS}")
 #set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Werror -ggdb3 -O2 -fsanitize=undefined,address ${CMAKE_CXX_FLAGS}")

@@ -17,6 +17,7 @@
 #include "driver/config/prelude.hpp"
 
 #include <memory>
+#include <stdexcept>
 
 #include "bson/document.hpp"
 #include "bson/types.hpp"

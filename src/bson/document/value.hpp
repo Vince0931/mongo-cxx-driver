@@ -27,7 +27,7 @@ namespace document {
 class LIBMONGOCXX_API value {
 
    public:
-    value(const std::uint8_t* b, std::size_t l, decltype(&std::free) = std::free);
+    value(const std::uint8_t* b, std::size_t l, void(*)(void*) = std::free);
     value(const view& view);
 
     document::view view() const;

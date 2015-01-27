@@ -52,16 +52,16 @@ generate_export_header (mongocxx-shared
 
 target_link_libraries (mongocxx-shared
     ${LIBMONGOC_LIBRARIES}
-    mongocxx-driver
-    mongocxx-bson
     mongocxx-stdx
+    mongocxx-bson
+    mongocxx-driver
 )
 
 target_link_libraries (mongocxx-static
     ${LIBMONGOC_LIBRARIES}
-    mongocxx-driver
-    mongocxx-bson
     mongocxx-stdx
+    mongocxx-bson
+    mongocxx-driver
 )
 
 install (TARGETS
@@ -92,9 +92,9 @@ if (BUILD_UNIT_TESTS)
     )
     target_link_libraries(mongocxx-mocked
         ${LIBMONGOC_LIBRARIES}
+        mongocxx-stdx
         mongocxx-driver-mocked
         mongocxx-bson
-        mongocxx-stdx
     )
 endif (BUILD_UNIT_TESTS)
 
